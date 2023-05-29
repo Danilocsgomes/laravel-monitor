@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Cadastrar um novo Site') }}
+            {{ __("Cadastrar um novo endpoint para o site {$site->url}" ) }}
         </h2>
     </x-slot>
 
@@ -11,16 +11,11 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <x-alerts></x-alerts>
 
-                    <form action="{{ route('sites.store')}}" method="post">
-                        @include('admin/sites/partials/form')
+                    <form action="{{ route('endpoints.store', $site->id) }}" method="post">
+                        @include('admin/endpoints/partials/form')
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </x-app-layout>
-
-
-<x-alerts></x-alerts>
-
-

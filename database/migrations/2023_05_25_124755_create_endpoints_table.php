@@ -16,7 +16,7 @@ return new class extends Migration
             $table->uuid('site_id')->index();
             $table->string('endpoint');
             $table->unsignedInteger('frequency');
-            $table->timestamp('next_check');
+            $table->timestamp('next_check')->nullable();
             $table->timestamps();
 
             $table->foreign('site_id')
