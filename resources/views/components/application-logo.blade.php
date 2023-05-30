@@ -1,1 +1,1 @@
-    <img class="w-30" src="img/logo-padrao.png">
+<img src="img/logo-padrao.png">
