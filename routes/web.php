@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('job', function() {
     $endpoint = Endpoint::latest()->first();
     EndpointCheckJob::dispatchSync($endpoint);
-});
+})->name('job.index');
 
 Route::middleware(['auth'])
     ->prefix('admin')
