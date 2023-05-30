@@ -3,7 +3,14 @@
 use App\Http\Controllers\Admin\EndpointController;
 use App\Http\Controllers\Admin\SiteController;
 use App\Http\Controllers\ProfileController;
+use App\Jobs\EndpointCheckJob;
+use App\Models\Endpoint;
 use Illuminate\Support\Facades\Route;
+
+Route::get('job', function() {
+    $endpoint = Endpoint::latest()->first();
+    EndpointCheckJob::dispatchSync($endpoint);
+});
 
 Route::middleware(['auth'])
     ->prefix('admin')
